@@ -1,0 +1,22 @@
+<?page title="Super Application"?>
+<window xmlns="http://www.zkoss.org/2005/zul"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"
+        id="win"
+        width="600px"
+        title="Super Hello" border="normal"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm')@init('org.example.web.viewmodel.MyVM')"
+        validationMessages="@id('vmsgs')">
+    <hlayout>count:
+        <label value="@load(vm.count)"/>
+    </hlayout>
+    <vbox>
+        <button label="hi" onClick='alert("hi")'/>
+        какой то текст
+        <button label="add" onClick="@command('cmd')"/>
+        <button label="method" onClick="@command('method')"/>
+        <button label="Ok (detach)" onClick="win.detach()"/>
+        <button label="Ok (save)" onClick="@command('save')"/>
+    </vbox>
+</window>

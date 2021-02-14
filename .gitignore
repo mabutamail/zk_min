@@ -1,0 +1,11 @@
+# Project exclude paths
+/src/profiles/
+/target/
+.idea
+out
+target
+*.iml
+log
+*.patch
+/lib/
+/logs/

@@ -1,0 +1,49 @@
+<zk>
+    <window xmlns="http://www.zkoss.org/2005/zul"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"
+
+            apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm')@init('org.example.web.viewmodel.UserVM')"
+            validationMessages="@id('vmsgs')">
+        <vlayout>count:
+            <label value="@load(vm.count)"/>
+            <label value="@load(vm.listUser)"/>
+
+
+            <grid>
+                <columns sizable="true">
+                    <column label="Type" sort="auto"/>
+                    <column label="Content"/>
+                </columns>
+                <rows>
+                    <row>
+                        <label value="File:"/>
+                        <textbox width="98%"/>
+                    </row>
+                    <row>
+                        <label value="Type:"/>
+                        <textbox value="Brand:" rows="3" width="98%"/>
+                    </row>
+                    <row>
+                        <label value="Options:"/>
+                        <textbox rows="3" width="98%"/>
+                    </row>
+                </rows>
+            </grid>
+
+
+        </vlayout>
+        <button onClick="@command('cmd')" label="as"/>
+        <button onClick="@command('method')" label="run method"/>
+        <button onClick="@command('initUser')" label="run inituser"/>
+        <button label="Hello.doModal" autodisable="self">
+            <attribute name="onClick">{
+                final Window win = (Window) Executions.createComponents(
+                "/index.zul", null, null);
+                win.setMaximizable(true);
+                win.doModal();
+                }</attribute>
+        </button>
+    </window>
+</zk>
