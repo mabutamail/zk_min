@@ -6,7 +6,7 @@
         width="600px"
         title="Super Hello" border="normal"
         apply="org.zkoss.bind.BindComposer"
-        viewModel="@id('vm')@init('org.example.web.viewmodel.MyVM')"
+        viewModel="@id('vm')@init('org.example.web.MyVM')"
         validationMessages="@id('vmsgs')">
     <hlayout>count:
         <label value="@load(vm.count)"/>

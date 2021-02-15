@@ -1,4 +1,4 @@
-package org.example.web.viewmodel;
+package org.example.web;
 
 import org.example.model.User;
 import org.example.repository.UserRepository;

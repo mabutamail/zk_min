@@ -1,4 +1,4 @@
-package org.example.web.viewmodel;
+package org.example.web;
 
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;

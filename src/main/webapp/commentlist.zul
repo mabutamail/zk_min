@@ -1,0 +1,64 @@
+<window xmlns="http://www.zkoss.org/2005/zul"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.zkoss.org/2005/zul  http://www.zkoss.org/2005/zul/zul.xsd"
+
+        sclass="cardSys" border="none"
+        apply="org.zkoss.bind.BindComposer"
+        id="commentListWindow"
+        title="список комментариев"
+        viewModel="@id('vm') @init('org.example.web.CommentVM')">
+    <!--    <style src="/widgets/grid/data_binding/style.css" />-->
+
+    <vbox>
+        <hbox>
+            <button id="savecomment" label="Новый кoмментарий" onClick="@command('createNewComment')"/>
+            <button label="Клиенты" href="/admin/clientlist.zul"/>
+        </hbox>
+    </vbox>
+
+    <hlayout spacing="0" height="400px">
+        <!--            model="@load(vm.contributorList)"-->
+        <!--            selectedItem="@bind(vm.selectedContributor)"-->
+
+        <listbox sclass="employee-list" vflex="true" hflex="1"
+                 model="@bind(vm.comments)"
+                 rows="10"
+                 emptyMessage="No comments"
+                 selectedItem="@bind(vm.selectedComment)">
+            <listhead>
+                <listheader label="id" align="center" width="5%"/>
+                <listheader label="client" align="left" width="15%"/>
+                <listheader label="comment" align="left"/>
+                <listheader label="creation date" align="center" width="20%"/>
+            </listhead>
+            <template name="model">
+                <listitem onDoubleClick="@command('createNewComment')">
+                    <listcell label="${each.id}"/>
+                    <listcell label="${each.client.name}"/>
+                    <listcell label="${each.comment}"/>
+                    <listcell label="${each.commentDate}"/>
+                </listitem>
+            </template>
+        </listbox>
+
+        <vbox visible="@bind(vm.selectedComment)">
+            <vbox>
+                карточка выбранного комментария
+                <hlayout>
+                    Клиент :
+                    <label value="@bind(vm.selectedComment.client.name)"/>
+                </hlayout>
+                <hlayout>
+                    Дата :
+                    <label value="@bind(vm.selectedComment.commentDate)"/>
+                </hlayout>
+                <hlayout>
+                    Комментарий :
+                    <label value="@bind(vm.selectedComment.comment)"/>
+                </hlayout>
+            </vbox>
+        </vbox>
+    </hlayout>
+
+
+</window>
