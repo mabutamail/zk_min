@@ -1,0 +1,3 @@
+<window title="Search" width="600px" border="normal">
+    <!-- put child components inside a tag's body -->
+</window>
