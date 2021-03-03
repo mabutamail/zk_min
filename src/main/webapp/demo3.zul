@@ -1,0 +1,97 @@
+<zk>
+    <borderlayout id="b" vflex="1">
+        <west id="w" width="15%" border="0" splittable="true" margins="0,5,0,0" autoscroll="true">
+            <div>
+                <panel width="100%" border="normal" title="Навигация">
+                    <panelchildren style="padding:5px;">
+                        <vbox>
+                            <toolbarbutton label="Список систем"/>
+                            <toolbarbutton label="Список оборудования"/>
+                            <toolbarbutton label="Добавить систему"/>
+                            <toolbarbutton label="Добавить оборудование"/>
+                        </vbox>
+                    </panelchildren>
+                </panel>
+            </div>
+        </west>
+        <center autoscroll="true">
+            <div>
+                <groupbox width="90%" sclass="main z-demo-config">
+                    <caption label="Добавление оборудования"/>
+                    <hlayout spacing="30px">
+                        Название оборудования:
+                        <textbox width="300px"></textbox>
+                    </hlayout>
+                    <separator spacing="30px"></separator>
+                    <hlayout>
+                        Серийный номер:
+                        <div style="padding-left: 80px">
+                            <textbox width="300px"></textbox>
+                        </div>
+                    </hlayout>
+                    <separator spacing="30px"></separator>
+                    <hlayout>
+                        Еще поле:
+                        <div style="padding-left: 135px">
+                            <textbox width="300px"></textbox>
+                        </div>
+                    </hlayout>
+                    <separator spacing="30px"></separator>
+                    <hlayout>
+                        Еще поле:
+                        <div style="padding-left: 135px">
+                            <textbox width="300px"></textbox>
+                        </div>
+                    </hlayout>
+                    <separator spacing="30px"></separator>
+                    <hlayout>
+                        <button label="Добавить документы" width="300px"/>
+                    </hlayout>
+                    <separator height="15px"></separator>
+
+                    <vlayout spacing="15px">
+                        <groupbox mold="3d">
+                            <caption label="Список документов"/>
+                            <grid vflex="1" hflex="1">
+                                <columns menupopup="auto">
+                                    <column width="5%" label="№"/>
+                                    <column width="20%" label="Документ"/>
+                                    <column label="Комментарий"/>
+                                    <column width="10%" label="Удаление"/>
+                                </columns>
+
+                                <rows>
+                                    <row>
+                                        <label value="1"/>
+                                        <label value="1.pdf"/>
+                                        <label value="Сертификат"/>
+                                        <button label="Удалить"/>
+                                    </row>
+                                    <row>
+                                        <label value="2"/>
+                                        <label value="2.pdf"/>
+                                        <label value="Спецификация"/>
+                                        <button label="Удалить"/>
+                                    </row>
+                                    <row>
+                                        <label value="3"/>
+                                        <label value="3.pdf"/>
+                                        <label value="Документация"/>
+                                        <button label="Удалить"/>
+                                    </row>
+                                </rows>
+                            </grid>
+                            <separator spacing="30px"></separator>
+                            <hlayout>
+                                <button label="Сформировать QR-код"/>
+                                <div style="padding-left: 1000px">
+                                    <button label="Сохранить"/>
+                                </div>
+                            </hlayout>
+                        </groupbox>
+                    </vlayout>
+                </groupbox>
+            </div>
+        </center>
+    </borderlayout>
+</zk>

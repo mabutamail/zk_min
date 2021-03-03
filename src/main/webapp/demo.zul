@@ -1,0 +1,97 @@
+<zk>
+    <borderlayout id="b" vflex="1">
+        <west id="w" width="15%" border="0" splittable="true" margins="0,5,0,0" autoscroll="true">
+            <div>
+                <panel width="100%" border="normal" title="Навигация">
+                    <panelchildren style="padding:5px;">
+                        <vbox>
+                            <toolbarbutton label="Список систем"/>
+                            <toolbarbutton label="Список оборудования"/>
+                            <toolbarbutton label="Добавить систему"/>
+                            <toolbarbutton label="Добавить оборудование"/>
+                        </vbox>
+                    </panelchildren>
+                </panel>
+            </div>
+        </west>
+        <center autoscroll="true">
+            <div>
+                <groupbox width="90%" sclass="main z-demo-config">
+                    <caption label="Добавление системы"/>
+                    <hlayout spacing="30px" style="padding-left: 10px;">
+                        Название системы:
+                        <textbox></textbox>
+                    </hlayout>
+                    <separator height="15px"></separator>
+                    <vlayout spacing="15px">
+                        <groupbox mold="3d" width="100%">
+                            <caption label="Добавить оборудование"/>
+                            <hlayout spacing="30px">
+                                <hlayout>
+                                    Серийный номер:
+                                    <listbox mold="select" width="200px">
+                                        <listitem label="ABC"/>
+                                        <listitem label="ABC123"/>
+                                        <listitem label="ABC1"/>
+                                        <listitem label="78ABC"/>
+                                    </listbox>
+                                </hlayout>
+
+                                <hlayout>
+                                    Название оборудования:
+                                    <textbox></textbox>
+                                </hlayout>
+                            </hlayout>
+                            <separator spacing="30px"></separator>
+                            <hlayout>
+                                Номер в последовательности сборки:
+                                <textbox width="30%"></textbox>
+                            </hlayout>
+                            <separator spacing="30px"></separator>
+                            <hlayout>
+                                <button label="Добавить в систему"></button>
+                            </hlayout>
+                        </groupbox>
+
+                        <groupbox mold="3d" width="100%">
+                            <caption label="Список оборудования системы"/>
+                            <grid vflex="1" hflex="1" model="@load(vm.licenses)">
+                                <columns menupopup="auto">
+                                    <column width="5%" label="№"/>
+                                    <column width="15%" label="Серийный номер"/>
+                                    <column label="Название оборудования"/>
+                                    <column width="10%" label="Удаление"/>
+                                    <column width="15%" label="Редактирование"/>
+                                </columns>
+
+                                <rows>
+                                    <row>
+                                        <label value="1"/>
+                                        <label value="ABC"/>
+                                        <label value="Насос"/>
+                                        <button label="Удалить"/>
+                                        <button label="Редактировать"/>
+                                    </row>
+                                    <row>
+                                        <label value="2"/>
+                                        <label value="ABC123"/>
+                                        <label value="Компрессор"/>
+                                        <button label="Удалить"/>
+                                        <button label="Редактировать"/>
+                                    </row>
+                                    <row>
+                                        <label value="3"/>
+                                        <label value="12ABC"/>
+                                        <label value="Насос"/>
+                                        <button label="Удалить"/>
+                                        <button label="Редактировать"/>
+                                    </row>
+                                </rows>
+                            </grid>
+                        </groupbox>
+                    </vlayout>
+                </groupbox>
+            </div>
+        </center>
+    </borderlayout>
+</zk>

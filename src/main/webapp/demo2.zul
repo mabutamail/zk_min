@@ -1,0 +1,90 @@
+<zk>
+    <borderlayout id="b" vflex="1">
+        <west id="w" width="15%" border="0" splittable="true" margins="0,5,0,0" autoscroll="true">
+            <div>
+                <panel width="100%" border="normal" title="Навигация">
+                    <panelchildren style="padding:5px;">
+                        <vbox>
+                            <toolbarbutton label="Список систем"/>
+                            <toolbarbutton label="Список оборудования"/>
+                            <toolbarbutton label="Добавить систему"/>
+                            <toolbarbutton label="Добавить оборудование"/>
+                        </vbox>
+                    </panelchildren>
+                </panel>
+            </div>
+        </west>
+        <center autoscroll="true">
+            <div>
+                <groupbox width="90%" sclass="main z-demo-config">
+
+                    <vlayout spacing="15px">
+                        <groupbox mold="3d">
+                            <caption label="Список систем">
+                                <div style="padding-left: 1150px">
+                                    <button label="+ Добавить систему"/>
+                                </div>
+                            </caption>
+                            <grid vflex="1" hflex="1" model="@load(vm.licenses)">
+                                <columns menupopup="auto">
+                                    <column width="5%" label="№"/>
+                                    <column width="14%" label="Дата создания"/>
+                                    <column label="Название"/>
+                                    <column width="15%" label="Объект"/>
+                                    <column width="17%" label="Доступ для скачивания"/>
+                                    <column width="10%" label="Удалить"/>
+                                    <column width="15%" label="Редактировать"/>
+                                </columns>
+
+                                <rows>
+                                    <row>
+                                        <label value="1"/>
+                                        <label value="01.01.2021"/>
+                                        <label value="Насосная станция 1"/>
+                                        <label value="Месторождение 1"/>
+                                        <hlayout>
+                                            Да
+                                            <checkbox checked="true"></checkbox>
+                                            Нет
+                                            <checkbox></checkbox>
+                                        </hlayout>
+                                        <button label="Удалить"/>
+                                        <button label="Редактировать"/>
+                                    </row>
+                                    <row>
+                                        <label value="2"/>
+                                        <label value="01.01.2021"/>
+                                        <label value="Насосная станция 2"/>
+                                        <label value="Месторождение 2"/>
+                                        <hlayout>
+                                            Да
+                                            <checkbox checked="true"></checkbox>
+                                            Нет
+                                            <checkbox></checkbox>
+                                        </hlayout>
+                                        <button label="Удалить"/>
+                                        <button label="Редактировать"/>
+                                    </row>
+                                    <row>
+                                        <label value="3"/>
+                                        <label value="01.01.2021"/>
+                                        <label value="Насосная станция 3"/>
+                                        <label value="Месторождение 3"/>
+                                        <hlayout>
+                                            Да
+                                            <checkbox></checkbox>
+                                            Нет
+                                            <checkbox checked="true"></checkbox>
+                                        </hlayout>
+                                        <button label="Удалить"/>
+                                        <button label="Редактировать"/>
+                                    </row>
+                                </rows>
+                            </grid>
+                        </groupbox>
+                    </vlayout>
+                </groupbox>
+            </div>
+        </center>
+    </borderlayout>
+</zk>

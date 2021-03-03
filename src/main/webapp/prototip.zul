@@ -1,0 +1,174 @@
+<window title="Добавление системы" width="1200px" border="normal">
+    <hbox align="center">
+
+        <datebox id="db0" cols="12" format="short " onCreate="self.value = new Date()" />
+
+        <label value="Название системы :" width="150px"/>
+        <textbox id="itemName" constraint="no empty"/>
+        <!-- call a method directly in an event -->
+        <button sclass="button1"
+                width="150px"
+                height="50px"
+                label="Создать"
+                onClick="addItem(itemName.getValue())"
+                image="/img/add.png"/>
+        <button sclass="button1"
+                width="150px"
+                height="50px"
+                label="Left"
+                image="/img/add.png"/>
+
+        <button sclass="button1"
+                height="50px"
+                image="/img/delete.png"/>
+
+        <button sclass="button1"
+                height="50px"
+                image="/img/filter.png"/>
+
+        <button sclass="button1"
+                height="50px"
+                image="/img/save.png"/>
+    </hbox>
+
+
+    <hbox align="center">
+        <label value="Серийный номер :"/>
+        <textbox id="itemName1" constraint="no empty"/>
+        <!-- call a method directly in an event -->
+        <button sclass="bigbutton"
+                label="Добавить"
+                onClick="addItem(itemName.getValue())"/>
+        <button sclass="bigbutton"
+                label="Удалить"
+                onClick="deleteItem()"/>
+    </hbox>
+
+    <groupbox>
+        <caption>
+            Список оборудования строго по порядку сборки:
+            <label id="itemCount"/>
+        </caption>
+        <listbox id="itemList" rows="5">
+            <listhead>
+                <listheader label="№" align="center" width="50px" sort="auto"/>
+                <listheader label="сертификат" align="center" sort="auto"/>
+                <listheader label="название" align="center" sort="auto"/>
+                <listheader label="производитель" align="center" sort="auto"/>
+                <listheader label="дата проверки" align="center" width="200px" sort="auto"/>
+            </listhead>
+
+            <listitem>
+                <listcell label="1"/>
+                <listcell label="ZASSS624"/>
+                <listcell label="Насос"/>
+                <listcell label="Knopf"/>
+                <listcell>
+                    <datebox id="db1" cols="12" format="short " onCreate="self.value = new Date()" />
+                </listcell>
+            </listitem>
+
+            <listitem>
+                <listcell label="2"/>
+                <listcell label="ZASSS6219"/>
+                <listcell label="Фильтр"/>
+                <listcell label="Knopf"/>
+                <listcell>
+                    <datebox id="db2" cols="12" format="short " onCreate="self.value = new Date()" />
+                </listcell>
+            </listitem>
+
+            <listitem>
+                <listcell label="3"/>
+                <listcell label="ZASSS623"/>
+                <listcell label="Датчик"/>
+                <listcell label="Knopf"/>
+                <listcell>
+                    <datebox id="db3" cols="12" format="short " onCreate="self.value = new Date()" />
+                </listcell>
+            </listitem>
+
+            <listitem>
+                <listcell label="4"/>
+                <listcell label="ZASSS623"/>
+                <listcell label="Предохранитель"/>
+                <listcell label="Knopf"/>
+                <listcell>
+                    <datebox cols="12" format="short " onCreate="self.value = new Date()" />
+                </listcell>
+            </listitem>
+
+            <listitem>
+                <listcell label="5"/>
+                <listcell label="ZASSS6245"/>
+                <listcell label="Датчик давления"/>
+                <listcell label="Knopf"/>
+                <listcell>
+                    <datebox cols="12" format="short " onCreate="self.value = new Date()" />
+                </listcell>
+            </listitem>
+
+            <listitem>
+                <listcell label="6"/>
+                <listcell label="ZASSS621"/>
+                <listcell label="Электрощит"/>
+                <listcell label="Knopf"/>
+                <listcell>
+                    <datebox cols="12" format="short " onCreate="self.value = new Date()" />
+                </listcell>
+            </listitem>
+
+        </listbox>
+    </groupbox>
+    <!-- 
+        Programming with zscript is usually for prototyping or small-system only.
+        If you are developing a large system, you should use Presenter or Presentation Model 
+        Pattern to control your application.    
+     -->
+    <zscript><![CDATA[
+         
+        //declare zscript methods
+        void addItem(String name){
+            //you could new a component directly and append it to another component.
+            Listitem item = new Listitem(name);
+            itemList.appendChild(item);
+            //select the new created item.
+            itemList.setSelectedItem(item);
+            updateItemCount();
+        }
+        void deleteItem(){
+            int index = itemList.getSelectedIndex();
+            if(index >= 0){
+                //remove the selected item
+                itemList.removeItemAt(index);
+                updateItemCount();
+            }else{
+                //a easy way to show a message to user
+                alert("Please select an item first!");
+            }
+        }
+        void updateItemCount(){
+            //update extra information for user
+            itemCount.setValue(Integer.toString(itemList.getItemCount()));
+        }
+         
+        //initialize
+        updateItemCount();
+    ]]></zscript>
+
+    <style>
+        .button1 {
+        border-radius: 8px;
+        font-size: 18px;
+        opacity: 0.9;
+        }
+        .bigbutton > i {
+        font-size: 15px;
+        opacity: 0.6;
+        }
+        .iceblue_c .bigbutton > i {
+        opacity: 0.9;
+        }
+    </style>
+
+</window>

@@ -1,0 +1,204 @@
+<window title="Добавление системы" width="1200px" border="normal">
+    <hbox align="center">
+        Название системы :
+        <textbox id="itemName" constraint="no empty"/>
+        <!-- call a method directly in an event -->
+        <button sclass="button1"
+                width="150px"
+                height="50px"
+                label="Создать"
+                onClick="addItem(itemName.getValue())"
+                image="/img/add.png"/>
+        <button sclass="button1"
+                width="150px"
+                height="50px"
+                label="Left"
+                image="/img/add.png"/>
+
+        <button sclass="button1"
+                height="50px"
+                image="/img/delete.png"/>
+
+        <button sclass="button1"
+                height="50px"
+                image="/img/filter.png"/>
+
+        <button sclass="button1"
+                height="50px"
+                image="/img/save.png"/>
+
+        <!--        <button label="Удалить" onClick="deleteItem()"/>-->
+        <!--        <button label="Редактировать" onClick="deleteItem()"/>-->
+    </hbox>
+
+    <!--    <groupbox>-->
+    <!--        <caption>-->
+    <!--            Список всех систем :-->
+    <!--            <label id="itemCount1"/>-->
+    <!--        </caption>-->
+
+
+    <!--        <hlayout id="accessories">-->
+    <!--            Тип системы:-->
+    <!--            <selectbox id="typesSelectbox" model="${win$composer.typesModel}">-->
+    <!--                <template name="model">-->
+    <!--                    <label value="${each}"/>-->
+    <!--                </template>-->
+    <!--            </selectbox>-->
+
+    <!--            <checkbox id="absCheckbox" label="ABS"-->
+    <!--                      checked="${win$composer.car.accessories.abs}"/>-->
+    <!--            <checkbox id="airbagCheckbox" label="Airbag"-->
+    <!--                      checked="${win$composer.car.accessories.airbag}"/>-->
+    <!--            <checkbox id="gpsCheckbox" label="GPS"-->
+    <!--                      checked="${win$composer.car.accessories.gps}"/>-->
+    <!--            <checkbox id="keylessCheckbox" label="Keyless"-->
+    <!--                      checked="${win$composer.car.accessories.keyless}"/>-->
+
+    <!--        </hlayout>-->
+
+
+    <!--        <listbox id="itemList1" rows="5">-->
+    <!--            <listhead>-->
+    <!--                <listheader label="Список всех систем"/>-->
+    <!--            </listhead>-->
+    <!--            <listitem label="Система 1"/>-->
+    <!--            <listitem label="Система 2"/>-->
+    <!--            <listitem label="Система 3"/>-->
+    <!--            <listitem label="Система 4"/>-->
+    <!--            <listitem label="Система 5"/>-->
+    <!--            <listitem label="Система 6"/>-->
+    <!--            <listitem label="Система 7"/>-->
+    <!--        </listbox>-->
+    <!--    </groupbox>-->
+
+
+    <hbox align="center">
+        Серийный номер :
+        <textbox id="itemName1" constraint="no empty"/>
+        <!-- call a method directly in an event -->
+        <button sclass="bigbutton"
+                label="Добавить"
+                onClick="addItem(itemName.getValue())"/>
+        <!--        <button label="Удалить" onClick="deleteItem()"/>-->
+        <button sclass="bigbutton"
+                label="Редактировать"
+                onClick="deleteItem()"/>
+    </hbox>
+
+    <groupbox>
+        <caption>
+            Список оборудования строго по порядку сборки:
+            <label id="itemCount"/>
+        </caption>
+        <listbox id="itemList" rows="5">
+            <listhead>
+                <listheader label="№" align="center" width="50px"/>
+                <listheader label="сертификат" align="center"/>
+                <listheader label="название" align="center"/>
+                <listheader label="производитель" align="center"/>
+                <listheader label="номер по порядку" align="center" width="200px"/>
+            </listhead>
+
+            <listitem>
+                <listcell label="1"/>
+                <listcell label="ZASSS621"/>
+                <listcell label="Насос"/>
+                <listcell label="Knopf (October 30, 2011)"/>
+                <listcell label="1"/>
+            </listitem>
+
+            <listitem>
+                <listcell label="2"/>
+                <listcell label="ZASSS621"/>
+                <listcell label="Фильтр"/>
+                <listcell label="Knopf (October 30, 2011)"/>
+                <listcell label="2"/>
+            </listitem>
+
+            <listitem>
+                <listcell label="3"/>
+                <listcell label="ZASSS621"/>
+                <listcell label="Датчик"/>
+                <listcell label="Knopf (October 30, 2011)"/>
+                <listcell label="3"/>
+            </listitem>
+
+            <listitem>
+                <listcell label="4"/>
+                <listcell label="ZASSS621"/>
+                <listcell label="Предохранитель"/>
+                <listcell label="Knopf (October 30, 2018)"/>
+                <listcell label="4"/>
+            </listitem>
+
+            <listitem>
+                <listcell label="5"/>
+                <listcell label="ZASSS621"/>
+                <listcell label="Датчик давления"/>
+                <listcell label="Knopf (October 30, 2011)"/>
+                <listcell label="5"/>
+            </listitem>
+            
+            <listitem>
+                <listcell label="6"/>
+                <listcell label="ZASSS621"/>
+                <listcell label="Электрощит"/>
+                <listcell label="Knopf (October 30, 2011)"/>
+                <listcell label="6"/>
+            </listitem>
+
+        </listbox>
+    </groupbox>
+    <!-- 
+        Programming with zscript is usually for prototyping or small-system only.
+        If you are developing a large system, you should use Presenter or Presentation Model 
+        Pattern to control your application.    
+     -->
+    <zscript><![CDATA[
+         
+        //declare zscript methods
+        void addItem(String name){
+            //you could new a component directly and append it to another component.
+            Listitem item = new Listitem(name);
+            itemList.appendChild(item);
+            //select the new created item.
+            itemList.setSelectedItem(item);
+            updateItemCount();
+        }
+        void deleteItem(){
+            int index = itemList.getSelectedIndex();
+            if(index >= 0){
+                //remove the selected item
+                itemList.removeItemAt(index);
+                updateItemCount();
+            }else{
+                //a easy way to show a message to user
+                alert("Please select an item first!");
+            }
+        }
+        void updateItemCount(){
+            //update extra information for user
+            itemCount.setValue(Integer.toString(itemList.getItemCount()));
+        }
+         
+        //initialize
+        updateItemCount();
+    ]]></zscript>
+
+    <style>
+        .button1 {
+        border-radius: 8px;
+        font-size: 18px;
+        opacity: 0.9;
+        }
+        .bigbutton > i {
+        font-size: 15px;
+        opacity: 0.6;
+        }
+        .iceblue_c .bigbutton > i {
+        opacity: 0.9;
+        }
+    </style>
+
+</window>
