@@ -1,6 +1,6 @@
-package org.example.service;
+package ru.zalex.zkmin.service;
 
-import org.example.model.Car;
+import ru.zalex.zkmin.model.Car;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package org.example.repository;
+package ru.zalex.zkmin.repository;
 
-import org.example.model.Comment;
+import ru.zalex.zkmin.model.Comment;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 //import org.springframework.data.repository.CrudRepository;

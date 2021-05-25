@@ -1,7 +1,7 @@
-package org.example.web;
+package ru.zalex.zkmin.web.viiewmodel;
 
-import org.example.model.User;
-import org.example.repository.UserRepository;
+import ru.zalex.zkmin.model.User;
+import ru.zalex.zkmin.repository.UserRepository;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
@@ -19,9 +19,9 @@ public class UserVM {
     @Init
     public void init() {
         count = 100;
-        User user1 = new User(1,"Zalex1");
-        User user2 = new User(2,"Zalex2");
-        User user3 = new User(3,"Zalex3");
+        User user1 = new User("Zalex1");
+        User user2 = new User("Zalex2");
+        User user3 = new User("Zalex3");
 
         listUser.add(user1);
         listUser.add(user2);

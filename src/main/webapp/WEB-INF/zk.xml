@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<zk>
-	<!-- [Optional]
-	Uncomment if you want to defines the application's name 
-	
-	<preference>
-		<name>org.zkoss.zk.ui.WebApp.name</name>
-		<value>zk_min</value>
-	</preference>
-	-->
-	
+<zk xmlns="http://www.zkoss.org/2005/zk/config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zk/config http://www.zkoss.org/2005/zk/config/zk.xsd">
+	<library-property>
+		<name>org.zkoss.theme.preferred</name>
+		<!--        <value>breeze</value>-->
+		<value>sapphire</value>
+	</library-property>
+	<session-config>
+		<!--1 сутки-->
+		<session-timeout>86400</session-timeout>
+	</session-config>
 </zk>

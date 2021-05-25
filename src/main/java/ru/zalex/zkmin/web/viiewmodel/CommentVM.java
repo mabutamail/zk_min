@@ -1,8 +1,8 @@
-package org.example.web;
+package ru.zalex.zkmin.web.viiewmodel;
 
-import org.example.model.Client;
-import org.example.model.Comment;
-import org.example.repository.CommentRepository;
+import ru.zalex.zkmin.model.Client;
+import ru.zalex.zkmin.model.Comment;
+import ru.zalex.zkmin.repository.CommentRepository;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.zk.ui.Executions;
@@ -83,15 +83,15 @@ public class CommentVM {
         commentRepository.save(comment);
     }
 
-    /**
-     * просмотр комментария к выбранному клиенту
-     */
-    @Command
-    public void view() {
-        comment = new Comment(selectedComment.getClient(),selectedComment.getComment());
-//        comment.setClient(selectedComment.getClient());
-//        comment.setComment(selectedComment.getComment());
-    }
+//    /**
+//     * просмотр комментария к выбранному клиенту
+//     */
+//    @Command
+//    public void view() {
+//        comment = new Comment(selectedComment.getClient(),selectedComment.getComment());
+////        comment.setClient(selectedComment.getClient());
+////        comment.setComment(selectedComment.getComment());
+//    }
 
 
 

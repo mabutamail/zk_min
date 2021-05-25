@@ -1,7 +1,7 @@
-package org.example.repository;
+package ru.zalex.zkmin.repository;
 
 
-import org.example.model.User;
+import ru.zalex.zkmin.model.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

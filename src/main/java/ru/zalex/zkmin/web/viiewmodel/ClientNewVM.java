@@ -1,16 +1,13 @@
-package org.example.web;
+package ru.zalex.zkmin.web.viiewmodel;
 
-import org.example.model.Client;
-import org.example.repository.ClientRepository;
+import ru.zalex.zkmin.model.Client;
+import ru.zalex.zkmin.repository.ClientRepository;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.Window;
-//import ru.simplex_software.mailform2.model.Client;
-//import ru.simplex_software.mailform2.repository.ClientRepository;
-
 import java.util.List;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
@@ -18,17 +15,12 @@ public class ClientNewVM {
 
     @WireVariable
     private ClientRepository clientRepository;
-
     private List<Client> clients;
-
     private Client client;
-
     private Client selectedClient;
-
     private String name;
     private String email;
     private String phone;
-
 
 //    @Init
 //    public void init(@ContextParam(ContextType.VIEW) Window window,
