@@ -1,10 +1,10 @@
 package ru.zalex.zkmin.web.viiewmodel;
 
-import ru.zalex.zkmin.model.User;
-import ru.zalex.zkmin.repository.UserRepository;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
+import ru.zalex.zkmin.model.User;
+import ru.zalex.zkmin.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 public class UserVM {
     private int count;
     private User user;
-    private final List<User> listUser = new ArrayList<>();
+    private List<User> listUser = new ArrayList<>();
 
     private UserRepository userRepository;
 
@@ -26,6 +26,10 @@ public class UserVM {
         listUser.add(user1);
         listUser.add(user2);
         listUser.add(user3);
+
+        userRepository.save(user1);
+        userRepository.save(user2);
+        userRepository.save(user3);
     }
 
     @Command

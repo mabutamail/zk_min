@@ -1,8 +1,6 @@
 package ru.zalex.zkmin.model;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -11,9 +9,12 @@ import javax.persistence.OneToMany;
 import java.time.Instant;
 import java.util.List;
 
-@Data
-@NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@Setter
+@Getter
+@NoArgsConstructor @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 @Entity
 public class Client extends AbstractPersistable<Long> {
     Instant creationDate = Instant.now();
@@ -21,7 +22,7 @@ public class Client extends AbstractPersistable<Long> {
     String name;
     String phone;
     @OneToMany(mappedBy = "client")
-    List<String> comment;
+    List<Comment> commentList;
     @OneToMany(mappedBy = "client")
     List<Car> carList;
 }
