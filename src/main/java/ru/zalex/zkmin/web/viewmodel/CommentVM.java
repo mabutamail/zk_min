@@ -1,4 +1,4 @@
-package ru.zalex.zkmin.web.viiewmodel;
+package ru.zalex.zkmin.web.viewmodel;
 
 import ru.zalex.zkmin.model.Client;
 import ru.zalex.zkmin.model.Comment;
@@ -9,9 +9,6 @@ import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.Window;
-//import ru.simplex_software.mailform2.model.Client;
-//import ru.simplex_software.mailform2.model.Comment;
-//import ru.simplex_software.mailform2.repository.CommentRepository;
 
 import java.time.Instant;
 import java.util.List;

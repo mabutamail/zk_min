@@ -3,19 +3,11 @@ package ru.zalex.zkmin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
-import ru.zalex.zkmin.model.Car;
-import ru.zalex.zkmin.model.Client;
-import ru.zalex.zkmin.model.Comment;
-import ru.zalex.zkmin.model.User;
-import ru.zalex.zkmin.repository.CarRepository;
-import ru.zalex.zkmin.repository.ClientRepository;
-import ru.zalex.zkmin.repository.CommentRepository;
-import ru.zalex.zkmin.repository.UserRepository;
+import ru.zalex.zkmin.model.*;
+import ru.zalex.zkmin.repository.*;
 
 import javax.annotation.Resource;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DataLoader implements InitializingBean {
     private static final Logger LOG = LoggerFactory.getLogger(DataLoader.class);
@@ -28,9 +20,22 @@ public class DataLoader implements InitializingBean {
     CarRepository carRepository;
     @Resource
     CommentRepository commentRepository;
+    @Resource
+    PrimitiveRepository primitiveRepository;
 
     @Override
     public void afterPropertiesSet() throws Exception {
+        Primitive primitive1 = Primitive.builder()
+                .aChar('c')
+                .aBoolean(true)
+                .aByte((byte) 127)
+                .aShort((short) 32767)
+                .anInt(1234567890)
+                .aLong(123_456_789_12L)
+                .aFloat(123.456f)
+                .aDouble(123456.789)
+                .build();
+        primitiveRepository.save(primitive1);
 
         Client client1 = Client.builder()
                 .creationDate(Instant.now())

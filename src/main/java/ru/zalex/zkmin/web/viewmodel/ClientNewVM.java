@@ -1,4 +1,4 @@
-package ru.zalex.zkmin.web.viiewmodel;
+package ru.zalex.zkmin.web.viewmodel;
 
 import ru.zalex.zkmin.model.Client;
 import ru.zalex.zkmin.repository.ClientRepository;
