@@ -4,59 +4,65 @@
     xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
     <window title="список примитивов"
+            height="min" hflex="1"
             viewModel="@id('vm') @init('ru.zalex.zkmin.web.viewmodel.PrimitiveVM')"
             apply="org.zkoss.bind.BindComposer">
 
         <hlayout>
+            <vbox>
+                <button label="Создать" href="primitiveNew.zul"/>
 
-            <listbox model="@bind(vm.primitiveList)">
-                <listhead>
-                    <listheader label="id" align="center" width="5%"/>
-                    <listheader label="Char" align="center" width="15%"/>
-                    <listheader label="Boolean" align="center"/>
-                    <listheader label="Byte" align="center"/>
-                    <listheader label="Short" align="center"/>
-                    <listheader label="Int" align="center"/>
-                    <listheader label="Long" align="center"/>
-                    <listheader label="Float" align="center"/>
-                    <listheader label="Double" align="center"/>
-                </listhead>
+                <listbox model="@bind(vm.primitiveList)">
+                    <listhead>
+                        <listheader label="id" align="center" width="5%"/>
+                        <listheader label="Char" align="center" width="5%"/>
+                        <listheader label="Boolean" align="center"/>
+                        <listheader label="Byte" align="center"/>
+                        <listheader label="Short" align="center"/>
+                        <listheader label="Int" align="center"/>
+                        <listheader label="Long" align="center"/>
+                        <listheader label="Float" align="center"/>
+                        <listheader label="Double" align="center"/>
+                        <listheader label="Delete" align="center" width="5%"/>
+                    </listhead>
 
-                <template name="model" var="primitives">
-                    <listitem>
-                        <listcell>
-                            <label value="@bind(primitives.id)"/>
-                        </listcell>
-                        <listcell>
-                            <label value="@bind(primitives.aChar)"/>
-                        </listcell>
-                        <listcell>
-                            <label value="@bind(primitives.aBoolean)"/>
-                        </listcell>
-                        <listcell>
-                            <label value="@bind(primitives.aByte)"/>
-                        </listcell>
-                        <listcell>
-                            <label value="@bind(primitives.aShort)"/>
-                        </listcell>
-                        <listcell>
-                            <label value="@bind(primitives.anInt)"/>
-                        </listcell>
-                        <listcell>
-                            <label value="@bind(primitives.aLong)"/>
-                        </listcell>
-                        <listcell>
-                            <label value="@bind(primitives.aFloat)"/>
-                        </listcell>
-                        <listcell>
-                            <label value="@bind(primitives.aDouble)"/>
-                        </listcell>
-                    </listitem>
-                </template>
-            </listbox>
+                    <template name="model" var="primitive">
+                        <listitem>
+                            <listcell>
+                                <label value="@bind(primitive.id)"/>
+                            </listcell>
+                            <listcell>
+                                <label value="@bind(primitive.aChar)"/>
+                            </listcell>
+                            <listcell>
+                                <label value="@bind(primitive.aBoolean)"/>
+                            </listcell>
+                            <listcell>
+                                <label value="@bind(primitive.aByte)"/>
+                            </listcell>
+                            <listcell>
+                                <label value="@bind(primitive.aShort)"/>
+                            </listcell>
+                            <listcell>
+                                <label value="@bind(primitive.anInt)"/>
+                            </listcell>
+                            <listcell>
+                                <label value="@bind(primitive.aLong)"/>
+                            </listcell>
+                            <listcell>
+                                <label value="@bind(primitive.aFloat)"/>
+                            </listcell>
+                            <listcell>
+                                <label value="@bind(primitive.aDouble)"/>
+                            </listcell>
+                            <listcell>
+                                <button label="Delete" onClick="@command('delete', primitive=primitive)"/>
+                            </listcell>
+                        </listitem>
+                    </template>
+                </listbox>
 
+            </vbox>
         </hlayout>
-
     </window>
-
 </zk>
